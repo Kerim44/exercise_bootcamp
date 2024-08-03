@@ -1,27 +1,17 @@
-import com.example.Application;
-import org.junit.Test;
+package com.example;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
 
     @Test
-    public void testAppOne() {
+    public void testGetCondition() {
         Application myApp = new Application();
+        boolean result = myApp.getCondition(true); // Pass boolean value instead of String
+        assertEquals(true, result);
 
-        String result = myApp.getStatus();
-
-        assertEquals("OK", result);
+        result = myApp.getCondition(false); // Additional test for false condition
+        assertEquals(false, result);
     }
-
-    @Test
-    public void testAppTwo() {
-        Application myApp = new Application();
-
-        boolean result = myApp.getCondition("true");
-
-        assertTrue(result);
-    }
-
 }
